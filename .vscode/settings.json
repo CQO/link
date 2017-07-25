@@ -1,0 +1,21 @@
+{
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  "files.exclude": {
+    ".git": true,
+    "bin": true,
+    "node_modules": false
+  },
+  "search.exclude": {
+    ".git": true,
+    "node_modules": true,
+    "bin": true,
+    "out": true,
+    "dist": true
+  }
+}

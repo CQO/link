@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug main process",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/app/main/index.js",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}/dist",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "runtimeArgs": [
+        "--enable-logging",
+        "-r",
+        "babel-register",
+        "-r",
+        "babel-polyfill"
+      ],
+      "env": {},
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/dist/**/*.js"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "console": "integratedTerminal"
+      // "preLaunchTask": "build"
+    },
+    {
+      "name": "Debug renderer process",
+      "type": "chrome",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "runtimeArgs": [
+        "${workspaceRoot}/app/main/index.js",
+        "--enable-logging",
+        "--remote-debugging-port=9222"
+      ],
+      "webRoot": "${workspaceRoot}/dist",
+      "sourceMaps": true,
+      "internalConsoleOptions": "openOnSessionStart",
+      "console": "integratedTerminal"
+    }
+  ]
+}

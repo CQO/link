@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>信源豆豆官网</title>
+	    <meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	    <meta name="Keywords" content="">
+	    <meta name="Description" content="">
+    	<link rel="stylesheet" href="css/animate.min.css" />
+    	<link rel="stylesheet" href="css/linkdood.css" />
+
+		<!--[if lt IE 9]>
+	  		<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<script>
+			var type=navigator.appName
+			if (type=="Netscape"){
+				var lang = navigator.language
+			}
+			else{
+				var lang = navigator.userLanguage
+			}
+			
+			var userLanguage = getCookie("userLanguage");
+			if(userLanguage == null || userLanguage == undefined || userLanguage == ""){
+				if( 'zh-cn' ==  lang || 'zh-CN' == lang || lang == null || lang == "" || lang == undefined){
+					setCookie("userLanguage","zh");
+				}else{
+					setCookie("userLanguage","en");
+					window.location.href="index_US.html";				
+				}
+			}else{
+				
+				if(userLanguage == 'en') {
+					window.location.href="index_US.html";
+				}
+				setCookie("userLanguage","zh");
+				/*if( 'zh-cn' ==  lang || 'zh-CN' == lang || lang == null || lang == "" || lang == undefined){
+					
+				}else{
+					setCookie("userLanguage","en");
+					window.location.href="index_US.html";				
+				}*/
+			}
+			
+			function setCookie(name,value){ //name为cookie的名称,value为name值
+                var days = 10; //保存天数,可作为参数传进来
+                var expires = new Date(); //建立日期变量
+                expires.setTime(expires.getTime() + days * 30 * 24 * 60 * 60 * 1000); //expires过期时间 = 当前时间 +过期时间(秒)
+                var str = name + '=' + value +';expires=' + expires.toGMTString(); //将值及过期时间一起保存至cookie中(需以GMT格式表示的时间字符串)
+                //var str = name + ‘=’ + escape(value) +’;expires=’ + expires.toGdMTString(); 
+                document.cookie = str;
+       		 }
+			
+			function getCookie(name){//name为cookie名称
+		        var strcookie = document.cookie;//获取cookie字符串
+		        var arr = strcookie.split(';'); //分割cookie
+		        for(var i = 0;i<arr.length;i++){
+		                var arrStr = arr[i].split("="); //对各个cookie进行分割
+		                if(str_trim(arrStr[0]) == name) return arrStr[1]; //判断是否存在cookie名称为name并输出
+		        }
+		        return ""; //返回
+			}
+			
+			// 去空格
+			function str_trim(str) { 
+            	return str.replace(/(^\s*)|(\s*$)/g, ""); 
+     		}
+		</script>
+		<div class="header">
+			<div class="wj-header-body clearfix">
+			    <div class="logo">
+			    	<img src="images/icon/icon_logo.png" width="48px" height="48px" id="toplogo" alt="logo" onerror="javascript:this.src='images/icon/icon_logo.png'"/> 
+			    	<span id="toptext"></span>
+			    </div>
+			    <div class="wj-nav wj-left-nav wj-f-l">
+		 			<ul>
+			            <li class="yes"><a href="#" >首页</a></li>
+			            <li><a id="download" href="/server-enterprise/" target="_blank">管理中心</a></li>
+			            <li><a href="/server-securitycenter/" target="_blank">安全中心</a></li>
+			            <li><a href="/vrvxin/" target="_blank">公共服务平台</a></li>
+			            <li><a id="chat" href="/startchat0.html" target="_blank">聊天</a></li>
+			        </ul>
+			    </div>
+			    
+			    <div class="wj-nav wj-right-nav wj-f-r">
+			        <ul id="loginDiv" class="wj-login-box">
+			            <li><img src="images/icon/login.png" style="margin-bottom:3px;"><a href="/server-sso/login" style="color:#6b695d;">登录</a></li>
+			            <li><img src="images/icon/pwd.png" style="margin-bottom:3px;"><a href="/server-securitycenter/password/goAccountCheck.vrv"  style="color:#6b695d;" >找回密码</a></li>
+						<li class="wj-dropMenu-box" >
+			            	<a id="sdkDownload" href="###" style="color:#6b695d;">
+			            		|&nbsp;&nbsp;<img src="images/icon/choose.png" style="margin-bottom:3px;">语言选择
+			            		<i class="wj-mark wj-mark-arrow-down">^</i>
+			            	</a>
+			            	<ul class="wj-dropMenu" style="margin-top:4px">
+			            		<li ><img src="images/icon/zh.png" style="margin-bottom:3px;"/><a href="index.html">简体中文</a></li>
+			            		<li><img src="images/icon/en.png" style="margin-bottom:3px;"/><a href="index_US.html">English</a></li>
+			            	</ul>
+			            </li>
+			        </ul>
+			        <ul  id="userDiv" class="wj-login-box" style="display:none;">
+			            <!--<li>欢迎您，<span id="username"></span>(<span id="userid"></span>)</li>-->
+			            <li>欢迎您，<span id="username"></span></li>
+			            <li><a href="javascript:void(0)" onclick="logout()" id="logout">退出</a></li>
+			            <!--<li><a href="javascript:void(0)" id="logout">退出</a></li>-->
+						<li class="wj-dropMenu-box" >
+			            	<a id="sdkDownload" href="###" style="color:#6b695d;">
+			            		|&nbsp;&nbsp;<img src="images/icon/choose.png" style="margin-bottom:3px;">语言选择
+			            		<i class="wj-mark wj-mark-arrow-down">^</i>
+			            	</a>
+			            	<ul class="wj-dropMenu" style="margin-top:4px">
+			            		<li ><img src="images/icon/zh.png" style="margin-bottom:3px;"/><a href="index.html">简体中文</a></li>
+			            		<li><img src="images/icon/en.png" style="margin-bottom:3px;"/><a href="index_US.html">English</a></li>
+			            	</ul>
+			            </li>
+			        </ul>
+			    </div>
+			</div>
+		</div>
+		
+		<div class="wj-page-content">
+			<!--banner-->
+			<div class="wj-slide">
+				<ul class="wj-slide-wrapper">
+					<li style="background: url(images/banner/index_1.png) center no-repeat;background-size: cover;">
+						<div class="wj-inner-box animated bounceInLeft">
+							<p class="wj-inner-title">信源豆豆Linkdood</p>
+							<p class="wj-inner-txt">不只是互联网通信和聊天，更是安全聚合通道</p>
+						</div>
+						<!--<a href="http://www.jq22.com/"><img src="images/banner/index_1.png" alt=""></a>-->
+					</li>
+					<li style="display:none;background: url(images/banner/index_2-2.png) center no-repeat;background-size: cover;">
+						<div class="wj-inner-box wj-fix-width wj-fix-top">
+							<p class="wj-inner-title animated flash">即时通讯</p>
+							<p class="wj-inner-txt animated bounceInDown wj-ani-delay">为企业、团队、个人提供安全隐私的沟通交流渠道</p>
+						<!--<a href="http://www.jq22.com"><img src="images/banner/index_2.png" alt=""></a>-->
+					</li>
+					<li style="display:none;background: url(images/banner/index_3.png) center no-repeat;background-size: cover;">
+						<div class="wj-inner-box wj-fix-width">
+							<p class="wj-inner-title animated bounceInUp">数据更加安全，沟通更加放心</p>
+							<p class="wj-inner-txt animated bounceInLeft wj-ani-delay">三端加密、四维防护！实现从服务器、通讯链路至客户端进行数据传送与存储的全程加密，即便管理员也无法擅自查看数据信息，让通信数据更加安全！</p>
+						</div>
+						<!--<a href="javascript:"><img src="images/banner/index_3.png" alt=""></a>-->
+					</li>
+				</ul>
+				<a href="javascript:" class="ctrl-slide wj-prev">上一张</a> 
+				<a href="javascript:" class="ctrl-slide wj-next">下一张</a>
+				<div class="wj-slidebox">
+					<div class="slideWrap">
+						<ul class="dot-wrap">
+							<li class="current"><em>1</em></li>
+							<li><em>2</em></li>
+							<li><em>3</em></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="wj-footer-top">
+			<p class="wj-text wj-title">下载信源豆豆</p>
+			<p class="wj-text wj-sub-info">信源豆豆，打造“路由+服务+用户”的创新设计网络通信体系，实现不同属主、不同架构社交网络系统的互联互通。</p>
+			
+			<!--下载类型-->
+			<div class="wj-show-box">
+	            <ul class="wj-show-body">
+	                <li class="wj-show-info wj-btn-lg">
+	                	<div class="wj-btn-lg-body">
+		                	<div class="wj-fig" style="overflow: hidden;padding: 35px 35px;">
+	                			<img src="images/icon/icon_windows.png" />
+			                	<i class="wj-b-p"></i>
+			                	<p class="wj-text wj-title" style="margin-bottom: 0px;line-height: 70px;">Windows桌面版</p>
+		                	</div>
+		                	<div class="wj-caption">
+		                		<a id="downPc" href="http://www.linkdood.cn/predownload/Linkdood_V1.0.2.exe">下载</a>
+		                	</div>
+	                	</div>
+	                </li>
+	                <li class="wj-show-info wj-btn-lg">
+	                	<div class="wj-btn-lg-body">
+		                	<div class="wj-fig" style="overflow: hidden;padding: 35px 70px;">
+		                		<img src="images/icon/icon_iphone.png" />
+		                		<i class="wj-b-p"></i>
+		                		<p class="wj-text wj-title" style="margin-bottom: 0px;line-height: 70px;">iPhone版</p>
+		                	</div>
+		                	<div class="wj-caption">
+		                		<a id="downIos" href="https://itunes.apple.com/cn/app/linkdood/id911643352?mt=8">下载</a>
+		                	</div>
+	                	</div>
+	                </li>
+	                <li class="wj-show-info wj-btn-lg">
+	                	<div class="wj-btn-lg-body">
+		                	<div class="wj-fig" style="overflow: hidden;padding: 35px 64px;">
+		                		<img src="images/icon/icon_andriod.png" />
+		                		<i class="wj-b-p"></i>
+		                		<p class="wj-text wj-title" style="margin-bottom: 0px;line-height: 70px;">Android版</p>
+		                	</div>
+		                	<div class="wj-caption">
+		                		<a id="downAnd" href="http://www.linkdood.cn/predownload/Android_Chat_comm_v1.0.10.apk">下载</a>
+		                	</div>
+	                	</div>
+	                </li>
+	            </ul>
+	        </div>
+	        
+	        <div class="wj-footer-middle">
+				<div class="wj-left-info">
+				<div id="qrcodeMore">
+				</div>
+					<!--<img class="wj-QRcode-pic"  src="images/erweima.jpg">-->
+				</div>
+			</div>
+		</div>
+		
+    	<script type="text/javascript" src="js/jquery-1.12.3.min.js" ></script>
+    	<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+    	<script type="text/javascript" src="js/wjSlide.js" ></script>
+		<script type="text/javascript" src="js/qrcode.js"></script>
+    	<script>
+    		
+    		$(document).ready(function(){
+    			$('.wj-slide').wjSlide({
+					autoPlay: true
+				});
+    			
+    			// slide样式重置
+    			viewReset();
+    			
+    			// slide样式重置
+				window.onresize = function () {
+					viewReset();
+				}
+    			// 权限判断
+        		auth();
+    		});
+    		
+    		function viewReset() {
+				var h = document.body.clientWidth;
+    			$(".wj-slide").css('min-height', h*0.38);
+			}
+    		
+    		function auth(){
+    		    var vrvID = $.cookie("vrvID");
+    		    var vrvTicket = $.cookie("vrvTicket");
+    		    if(vrvID == undefined || vrvID == '' || vrvTicket == undefined || vrvTicket == '')
+    		        return;
+    		    $.ajax({
+    		        type:"post",
+    		        dataType:"jsonp",
+    		        jsonp:"callback",
+    		        jsonpCallback: "authback",
+    		        url:"/server-sso/aauth",
+    		        crossDomain:true,
+    		        data:{
+    		            'vrvID':vrvID,
+    		            'vrvTicket':vrvTicket
+    		        },
+    		        success:function(data){
+    		            authback(data);
+    		        }
+    		    });
+    		}
+
+    		function authback(data){
+    		    if(data.success){
+    		        $("#username").html(data.user.name);
+    		        // $("#userid").html(data.user.account);
+    		        $("#loginDiv").hide();
+    		        $("#userDiv").show();
+    		    }
+    		}
+    		
+    		function logout(){
+    			jQuery.support.cors = true;
+    			$.ajax( {  
+    		      url:'/server-sso/ajaxDoamin',
+    		      data:{  	 
+    		      },  
+    			 crossDomain: true,
+    			 contentType: "application/x-www-form-urlencoded",
+    		     type:'POST',  
+    		     cache:false,  
+    		     dataType:'json',  
+    		     success:function(data) {  
+    			
+    				$.cookie("vrvID","", {expires: 7, path: '/', domain:data.domain, secure: true});
+    				$.cookie("vrvTicket","", {expires: 7, path: '/', domain:data.domain, secure: true});
+    				location.reload();
+    				
+    		      },
+    		      error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+		          }
+    			});
+
+
+    		}
+    		
+			var base = {
+			/** ajax公共方法 */
+				AJAX_POST : function(action, data,type,callback,async) {
+					
+					var dataObj = {};
+					if (data){
+						dataObj = data;
+					}
+					if(!type){
+						type = 'json';
+					}
+					var as = async || true;
+					if(async&&async=='false'){
+						as = false;
+					}else if(async&&async=='true'){
+						as = true;
+					}
+					$.ajax({
+						url : action,
+						data : dataObj,
+						type : 'get',
+						dataType : type,
+						async : as,      // 取消异步请求
+						beforeSend : function() {
+							
+						},
+						success : function(o) {
+							if (callback && $.isFunction(callback)) {
+								callback(o);
+							}
+						},
+						complete : function(XMLHttpRequest, textStatus) {
+						},
+						error : function() {
+						}
+						
+					});
+				}
+			};
+			var qrcode = new QRCode(document.getElementById("qrcodeMore"), {
+			     width : 128,//设置宽高
+			     height : 128
+			     });
+			var src =window.location.protocol +"//"+window.location.host+"/predownload/";
+			
+			base.AJAX_POST( src+"Install.json", "", 'json', function(o){
+				$("#downPc").attr("href",src+o.Pc);
+				$("#downIos").attr("href",o.Iod);
+				
+				$("#toptext").text(o.Name);
+				$("title").text(o.IndexTitle);
+				$("#toplogo").attr("src",o.Image);
+				$("#downAnd").attr("href",src+o.Android);	
+				// qrcode.makeCode(window.location.protocol +"//"+o.Eurl+"?sign="+o.Nbs+".linkdood.cn&sdns="+o.Eurl);
+				qrcode.makeCode(o.Eurl);
+				
+				$('#chat').attr('href', window.location.protocol +'//' + o.Eurl +'/startchat0.html');
+			});
+			
+			//var a ={"Nbs":"vrv","Name":"北京北信源软件股份有限公司","Eurl":"vrv.linkdood.cn","Pc":"Linkdood_V0.5.7.exe","Android":"Android_Chat_comm_v0.5.182.apk","Iod":"itms-services://?action=download-manifest\u0026url=https://im.vrv.cn/ior/comm/0.4.90/vrv.plist","CentOS":"","Ubuntu":"","MacOS":""};
+			
+
+    	</script>
+	</body>
+</html>
